@@ -4,28 +4,28 @@ Initial planning for the blog site I am creating for my GA capstone project
 
 ## Wireframes
 
-Landing Page
+_Landing Page_
 ![Imgur](https://i.imgur.com/qlYhwx1.png)
 
-Read Blog Post Page
+_Read Blog Post Page_
 ![Imgur](https://i.imgur.com/y2WkTo0.png)
 
-Transcription Library Page
+_Transcription Library Page_
 ![Imgur](https://i.imgur.com/3xmsbhl.png)
 
-About Page
+_About Page_
 ![Imgur](https://i.imgur.com/5ZS2yAR.png)
 
-Contact Page
+_Contact Page_
 ![Imgur](https://i.imgur.com/BKW49NO.png)
 
-Login Page
+_Login Page_
 ![Imgur](https://i.imgur.com/4PlTLrO.png)
 
-Commenting and Liking
+_Commenting and Liking_
 ![Imgur](https://i.imgur.com/vcVCBEb.png)
 
-User Liked Post Collection
+_User Liked Post Collection_
 ![Imgur](https://i.imgur.com/UE2zz43.png)
 
 ## ERD
