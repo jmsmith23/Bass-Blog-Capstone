@@ -1,16 +1,7 @@
-import css from './App.module.scss';
-import logo from './assets/react.svg';
+import DrawerAppBar from './components/drawer-app-bar/drawer-app-bar';
 
-function App() {
-  return (
-    <>
-      <header className={css.header}>
-        <img src={logo} />
-        <div className={css.title}>Jeff's Bass Blog</div>
-        <nav></nav>
-      </header>
-    </>
-  );
-}
+const App = () => {
+  return <DrawerAppBar />;
+};
 
 export default App;
