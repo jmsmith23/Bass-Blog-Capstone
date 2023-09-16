@@ -9,10 +9,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import Sidebar from './components/sidebar/sidebar';
+import Sidebar from '../sidebar/sidebar';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Home', 'About', 'Transcriptions', 'Contact', 'Sign In'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -48,7 +48,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Jeff Smith Music
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

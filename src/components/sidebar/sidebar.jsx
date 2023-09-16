@@ -12,7 +12,7 @@ const Sidebar = ({ handleDrawerToggle, navItems }) => {
   return (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        Jeff Smith Music
       </Typography>
       <Divider />
       <List>
