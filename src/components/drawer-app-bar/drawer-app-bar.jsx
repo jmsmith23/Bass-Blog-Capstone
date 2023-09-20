@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import Sidebar from '../sidebar/sidebar';
+import SearchBar from '../searchbar/searchbar';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Transcriptions', 'Contact', 'Sign In'];
@@ -57,6 +58,7 @@ function DrawerAppBar(props) {
               </Button>
             ))}
           </Box>
+          <SearchBar />
         </Toolbar>
       </AppBar>
       <nav>
