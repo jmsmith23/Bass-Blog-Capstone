@@ -15,8 +15,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=600&h=250&q=60',
+    imgPath: 'https://i.imgur.com/d13oYd4.png',
   },
   {
     label: 'Bird',
@@ -81,7 +80,7 @@ function SwipeableTextMobileStepper() {
                 sx={{
                   height: 255,
                   display: 'block',
-                  maxWidth: 400,
+                  maxWidth: 600,
                   overflow: 'hidden',
                   width: '100%',
                 }}
