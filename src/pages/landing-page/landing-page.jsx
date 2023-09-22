@@ -7,7 +7,7 @@ const LandingPage = () => {
     <Container>
       <Carousel />
       <Box sx={{ flexGrow: 1 }}>
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+        <Stack direction="row" spacing={0.5}>
           <Card />
           <Card />
           <Card />
