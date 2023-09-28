@@ -5,7 +5,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import * as React from 'react';
 
 const Sidebar = ({ handleDrawerToggle, navItems }) => {
   return (
