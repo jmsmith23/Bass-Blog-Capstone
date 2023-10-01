@@ -13,7 +13,6 @@ const LandingPage = () => {
           <Card />
         </Stack>
       </Box>
-      <textarea></textarea>
     </Container>
   );
 };

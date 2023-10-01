@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import Sidebar from '../sidebar/sidebar';
 import SearchBar from '../searchbar/searchbar';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Transcriptions', 'Contact', 'Sign In'];
@@ -56,7 +57,12 @@ function DrawerAppBar(props) {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
                 <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
+                  <Link
+                    style={{ textDecoration: 'none', color: '#fff' }}
+                    to={`${item}`}
+                  >
+                    {item}
+                  </Link>
                 </Button>
               ))}
             </Box>
