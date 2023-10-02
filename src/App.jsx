@@ -10,6 +10,7 @@ const App = () => {
     <>
       <DrawerAppBar />
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<LandingPage />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Transcriptions" element={<TranscriptionPage />} />
