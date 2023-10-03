@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const ContactPage = () => {
   return (
@@ -55,6 +56,10 @@ const ContactPage = () => {
       </Container>
       <Container
         sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           mb: 8,
         }}
         maxWidth="sm"
@@ -72,12 +77,14 @@ const ContactPage = () => {
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Name"
+            size="small"
           />
           <TextField
             required
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Email"
+            size="small"
           />
           <TextField
             required
@@ -86,8 +93,10 @@ const ContactPage = () => {
             label="Message"
             multiline
             rows={4}
+            size="small"
           />
         </Box>
+        <Button variant="contained">Send Message</Button>
       </Container>
     </>
   );
