@@ -15,7 +15,7 @@ import SearchBar from '../searchbar/searchbar';
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Transcriptions', 'Contact', 'Login'];
+const navItems = ['home', 'about', 'transcriptions', 'contact', 'login'];
 
 function DrawerAppBar(props) {
   const { window } = props;
