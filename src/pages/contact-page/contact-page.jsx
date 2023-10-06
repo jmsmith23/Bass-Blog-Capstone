@@ -8,7 +8,11 @@ import Button from '@mui/material/Button';
 const ContactPage = () => {
   return (
     <>
-      <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
+      <Typography
+        color="primary"
+        variant="h3"
+        sx={{ textAlign: 'center', my: 6 }}
+      >
         Contact Me
       </Typography>
       <Container
@@ -27,26 +31,66 @@ const ContactPage = () => {
           contact form below, and I'll get back to you as soon as possible.
           <br />
           <br />
-          <Box sx={{ fontWeight: 'bold' }}>Services I Provide:</Box>
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              Services I Provide:
+            </Typography>
+          </Box>
           <br />
-          <Box sx={{ fontWeight: 'bold' }}>Bass Guitar Lessons:</Box> Whether
-          you are a beginner looking to start your musical journey or an
+          <Box>
+            {' '}
+            <Typography
+              variant="h6"
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
+            >
+              Bass Guitar Lessons:
+            </Typography>
+          </Box>{' '}
+          Whether you are a beginner looking to start your musical journey or an
           experienced player aiming to enhance your skills, I offer personalized
           bass guitar lessons to suit your needs and goals.
           <br />
           <br />
-          <Box sx={{ fontWeight: 'bold' }}>Transcriptions:</Box> Need a song
-          transcribed for your band or personal practice? I can help you with
-          accurate and detailed music transcriptions.
+          <Box>
+            <Typography
+              variant="h6"
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
+            >
+              Transcriptions:
+            </Typography>
+          </Box>{' '}
+          Need a song transcribed for your band or personal practice? I can help
+          you with accurate and detailed music transcriptions.
           <br />
-          <br /> <Box sx={{ fontWeight: 'bold' }}>Studio/Session Work:</Box> I
-          am available for studio and session work, bringing my expertise on the
-          bass guitar to your musical projects. Let's collaborate to create
+          <br />{' '}
+          <Box>
+            <Typography
+              variant="h6"
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
+            >
+              Studio/Session Work:
+            </Typography>
+          </Box>{' '}
+          I am available for studio and session work, bringing my expertise on
+          the bass guitar to your musical projects. Let's collaborate to create
           outstanding music together.
           <br />
-          <br /> <Box sx={{ fontWeight: 'bold' }}>Gigs:</Box> If you are looking
-          to book me for live performances or gigs, please provide the details,
-          and I'll be happy to discuss availability and arrangements.
+          <br />{' '}
+          <Box>
+            <Typography
+              variant="h6"
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
+            >
+              Gigs:
+            </Typography>
+          </Box>{' '}
+          If you are looking to book me for live performances or gigs, please
+          provide the details, and I'll be happy to discuss availability and
+          arrangements.
           <br />
           <br /> Please use the form below to contact me, and don't forget to
           include any specific information related to your inquiry or booking
@@ -96,7 +140,9 @@ const ContactPage = () => {
             size="small"
           />
         </Box>
-        <Button variant="contained">Send Message</Button>
+        <Button variant="contained" color="primary">
+          Send Message
+        </Button>
       </Container>
     </>
   );

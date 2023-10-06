@@ -5,19 +5,10 @@ import AboutPage from './pages/about-page/about-page';
 import ContactPage from './pages/contact-page/contact-page';
 import LoginPage from './pages/login-page/login-page';
 import TranscriptionPage from './pages/transcription-page/transcription-page';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 
 const App = () => {
-  const theme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-    primary: {
-      dark: red[500],
-    },
-  });
-
   return (
     <>
       <ThemeProvider theme={theme}>
