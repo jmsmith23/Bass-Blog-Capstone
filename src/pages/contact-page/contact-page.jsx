@@ -8,11 +8,7 @@ import Button from '@mui/material/Button';
 const ContactPage = () => {
   return (
     <>
-      <Typography
-        color="primary"
-        variant="h3"
-        sx={{ textAlign: 'center', my: 6 }}
-      >
+      <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
         Contact Me
       </Typography>
       <Container
@@ -118,6 +114,7 @@ const ContactPage = () => {
         >
           <TextField
             required
+            variant="standard"
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Name"
@@ -125,6 +122,7 @@ const ContactPage = () => {
           />
           <TextField
             required
+            variant="standard"
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Email"
@@ -132,11 +130,12 @@ const ContactPage = () => {
           />
           <TextField
             required
+            variant="standard"
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Message"
             multiline
-            rows={4}
+            rows={3}
             size="small"
           />
         </Box>
