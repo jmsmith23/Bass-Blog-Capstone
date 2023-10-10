@@ -4,11 +4,7 @@ import Container from '@mui/material/Container';
 const AboutPage = () => {
   return (
     <>
-      <Typography
-        color="primary"
-        variant="h3"
-        sx={{ textAlign: 'center', my: 6 }}
-      >
+      <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
         About Me
       </Typography>
       <Container

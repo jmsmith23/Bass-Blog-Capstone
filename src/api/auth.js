@@ -1,8 +1,13 @@
-export async function login(user) {
+/**
+ * Logs the user in.
+ * @param {{email: string, password: string}} user
+ * @returns
+ */
+export async function login({ email, password }) {
   const response = await fetch(`/users/login`, {
     method: 'POST',
     credentials: 'include',
-    body: JSON.stringify(user),
+    body: JSON.stringify({ email, password }),
   });
 
   if (!response.ok) {
