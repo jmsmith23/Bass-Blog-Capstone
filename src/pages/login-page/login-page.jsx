@@ -1,7 +1,13 @@
 import Typography from '@mui/material/Typography';
 import { login } from '../../api/auth';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   return (
     <>
       <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
@@ -10,10 +16,26 @@ const LoginPage = () => {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          // TODO: Pass in the user data
-          await login();
+          await login({ email, password });
+          navigate('/');
         }}
-      ></form>
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button>Submit</button>
+      </form>
     </>
   );
 };

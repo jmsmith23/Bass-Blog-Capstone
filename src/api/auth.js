@@ -4,7 +4,7 @@
  * @returns
  */
 export async function login({ email, password }) {
-  const response = await fetch(`/users/login`, {
+  const response = await fetch(`${import.meta.env.API_URL}/users/login`, {
     method: 'POST',
     credentials: 'include',
     body: JSON.stringify({ email, password }),
