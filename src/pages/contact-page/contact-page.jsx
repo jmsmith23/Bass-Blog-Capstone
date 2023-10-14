@@ -139,7 +139,7 @@ const ContactPage = () => {
             size="small"
           />
         </Box>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="secondary" size="large">
           Send Message
         </Button>
       </Container>
