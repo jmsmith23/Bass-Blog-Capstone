@@ -1,4 +1,4 @@
-import Typography from '@mui/material/Typography';
+import { Typography, Box, Container, TextField, Button } from '@mui/material';
 import { login } from '../../api/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,29 +13,60 @@ const LoginPage = () => {
       <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
         Login
       </Typography>
-      <form
-        onSubmit={async (e) => {
-          e.preventDefault();
-          await login({ email, password });
-          navigate('/');
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mb: 8,
         }}
+        maxWidth="sm"
       >
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { mb: 1, width: '100%' },
           }}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
+          noValidate
+          autoComplete="off"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            await login({ email, password });
+            navigate('/');
           }}
-        />
-        <button>Submit</button>
-      </form>
+        >
+          <TextField
+            required
+            variant="standard"
+            helperText=" "
+            id="demo-helper-text-aligned-no-helper"
+            label="Email"
+            size="small"
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <TextField
+            required
+            variant="standard"
+            helperText=" "
+            id="demo-helper-text-aligned-no-helper"
+            label="Password"
+            size="small"
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </Box>
+        <Button variant="contained" color="primary">
+          Login
+        </Button>
+      </Container>
     </>
   );
 };
