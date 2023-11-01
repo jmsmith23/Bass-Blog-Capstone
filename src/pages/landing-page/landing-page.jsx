@@ -15,17 +15,6 @@ const LandingPage = () => {
         }}
       ></Paper>
       <Container>
-        {/* <Box
-        component="img"
-        sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 233, md: 167 },
-          maxWidth: { xs: 350, md: 250 },
-        }}
-        alt="J Smith Bass"
-        src="https://i.imgur.com/919ix4p.jpg"
-      /> */}
         <Box sx={{ flexGrow: 1 }}>
           <Grid container my={3} spacing={1}>
             <Grid item xs={12} sm={6} md={4}>

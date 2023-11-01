@@ -46,7 +46,7 @@ const LoginPage = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography variant="h6" sx={{ mb: 5 }}>
+            <Typography variant="h4" sx={{ mb: 5 }}>
               Login
             </Typography>
           </Box>
