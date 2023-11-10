@@ -11,9 +11,28 @@ export async function login({ email, password }) {
   });
 
   if (!response.ok) {
-    const data = await response.json();
-    throw new Error(data.message);
+    const body = await response.json();
+    throw new Error(body.message);
   }
+
+  // TODO: Save the auth token on the front-end (i.e. in a cookie or local storage)
+
+  return true;
+}
+
+export async function signup({ username, email, password }) {
+  const response = await fetch(`${import.meta.env.API_URL}/users/signup`, {
+    method: 'POST',
+    credentials: 'include',
+    body: JSON.stringify({ username, email, password }),
+  });
+
+  if (!response.ok) {
+    const body = await response.json();
+    throw new Error(body.message);
+  }
+
+  // TODO: Save the auth token on the front-end (i.e. in a cookie or local storage)
 
   return true;
 }
