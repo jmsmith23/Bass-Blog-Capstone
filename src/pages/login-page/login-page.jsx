@@ -1,7 +1,7 @@
 import { Typography, Box, Container, TextField, Button } from '@mui/material';
 import { login } from '../../api/auth';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -85,6 +85,13 @@ const LoginPage = () => {
           >
             Login
           </Button>
+          <Typography component="div" variant="body1" sx={{ my: 10 }}>
+            Need to create an account?{' '}
+            <Link style={{ color: '#ef5350' }} to={'/signup'}>
+              Click here
+            </Link>{' '}
+            to create account.
+          </Typography>
         </Box>
       </Container>
     </>

@@ -1,22 +1,30 @@
 import { Typography, Box, Container, TextField, Button } from '@mui/material';
 import { signup } from '../../api/auth';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters');
+      return;
+    }
+
     try {
       await signup({ username, email, password });
       navigate('/');
     } catch (error) {
       // TODO: Set an error state
       // TODO: Render the error state down there v
+      setError(error.message);
     }
   };
 
@@ -95,6 +103,7 @@ const SignupPage = () => {
               setPassword(e.target.value);
             }}
           />
+          {error && <div style={{ color: 'red' }}>{error}</div>}
           <Button
             variant="contained"
             color="secondary"
@@ -102,9 +111,15 @@ const SignupPage = () => {
             size="large"
             sx={{ width: '100%', mt: 3 }}
           >
-            Login
+            Sign Up
           </Button>
-          {/* TODO: Add text with link to login page */}
+          <Typography component="div" variant="body1" sx={{ my: 10 }}>
+            Already a member?{' '}
+            <Link style={{ color: '#ef5350' }} to={'/login'}>
+              Click here
+            </Link>{' '}
+            to log in.
+          </Typography>
         </Box>
       </Container>
     </>

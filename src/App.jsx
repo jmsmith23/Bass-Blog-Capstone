@@ -4,6 +4,7 @@ import LandingPage from './pages/landing-page/landing-page';
 import AboutPage from './pages/about-page/about-page';
 import ContactPage from './pages/contact-page/contact-page';
 import LoginPage from './pages/login-page/login-page';
+import SignupPage from './pages/signup-page/signup-page';
 import TranscriptionPage from './pages/transcription-page/transcription-page';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/transcriptions" element={<TranscriptionPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
       </ThemeProvider>
     </>
