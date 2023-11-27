@@ -86,7 +86,22 @@ const LoginPage = () => {
           >
             Login
           </Button>
-          <Typography component="div" variant="body1" sx={{ my: 10 }}>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography
+            component="div"
+            variant="body1"
+            sx={{
+              my: 10,
+            }}
+          >
             Need to create an account?{' '}
             <Link style={{ color: '#ef5350' }} to={'/signup'}>
               Click here

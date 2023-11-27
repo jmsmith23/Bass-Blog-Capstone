@@ -103,7 +103,7 @@ const SignupPage = () => {
               setPassword(e.target.value);
             }}
           />
-          {error && <div style={{ color: 'red' }}>{error}</div>}
+          {error && <div style={{ color: '#ef5350' }}>{error}</div>}
           <Button
             type="submit"
             variant="contained"
@@ -114,7 +114,22 @@ const SignupPage = () => {
           >
             Sign Up
           </Button>
-          <Typography component="div" variant="body1" sx={{ my: 10 }}>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography
+            component="div"
+            variant="body1"
+            sx={{
+              my: 10,
+            }}
+          >
             Already a member?{' '}
             <Link style={{ color: '#ef5350' }} to={'/login'}>
               Click here
