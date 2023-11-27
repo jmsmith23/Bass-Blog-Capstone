@@ -4,10 +4,13 @@
  * @returns
  */
 export async function login({ email, password }) {
-  const response = await fetch(`${import.meta.env.API_URL}/users/login`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/login`, {
     method: 'POST',
     credentials: 'include',
     body: JSON.stringify({ email, password }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
 
   if (!response.ok) {
@@ -21,10 +24,13 @@ export async function login({ email, password }) {
 }
 
 export async function signup({ username, email, password }) {
-  const response = await fetch(`${import.meta.env.API_URL}/users/signup`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/signup`, {
     method: 'POST',
     credentials: 'include',
     body: JSON.stringify({ username, email, password }),
+    headers: {
+      // 'Content-Type': 'application/json',
+    },
   });
 
   if (!response.ok) {

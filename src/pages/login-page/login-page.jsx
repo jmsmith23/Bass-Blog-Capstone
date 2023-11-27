@@ -77,6 +77,7 @@ const LoginPage = () => {
             }}
           />
           <Button
+            type="submit"
             variant="contained"
             color="secondary"
             value="submit"

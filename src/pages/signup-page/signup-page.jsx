@@ -12,7 +12,7 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(password);
     if (password.length < 8) {
       setError('Password must be at least 8 characters');
       return;
@@ -105,6 +105,7 @@ const SignupPage = () => {
           />
           {error && <div style={{ color: 'red' }}>{error}</div>}
           <Button
+            type="submit"
             variant="contained"
             color="secondary"
             value="submit"
