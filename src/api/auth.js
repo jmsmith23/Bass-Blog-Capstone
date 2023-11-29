@@ -29,7 +29,7 @@ export async function signup({ username, email, password }) {
     credentials: 'include',
     body: JSON.stringify({ username, email, password }),
     headers: {
-      // 'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
     },
   });
 
