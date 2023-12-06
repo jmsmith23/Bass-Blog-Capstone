@@ -9,17 +9,31 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
-import * as React from 'react';
 import Sidebar from '../sidebar/sidebar';
 import SearchBar from '../searchbar/searchbar';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const drawerWidth = 240;
-const navItems = ['home', 'about', 'transcriptions', 'contact', 'login'];
 
-function DrawerAppBar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+function DrawerAppBar({ window, user }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [navItems, setNavItems] = useState([
+    'home',
+    'about',
+    'transcriptions',
+    'contact',
+    'login',
+  ]);
+
+  useEffect(() => {
+    if (user) {
+      setNavItems(['home', 'about', 'transcriptions', 'contact', 'logout']);
+    }
+  }, [user]);
+  // const onLogin = () => {
+  //   setNavItems(['home', 'about', 'transcriptions', 'contact', 'logout']);
+  // };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -96,11 +110,8 @@ function DrawerAppBar(props) {
 }
 
 DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default DrawerAppBar;

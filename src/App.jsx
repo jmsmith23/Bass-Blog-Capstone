@@ -8,20 +8,29 @@ import SignupPage from './pages/signup-page/signup-page';
 import TranscriptionPage from './pages/transcription-page/transcription-page';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
+import { useState } from 'react';
 
 const App = () => {
+  // TODO: Get thecurrent user from the back-end when the page loads
+  const [user, setUser] = useState(null);
+
+  console.log('user: ', user);
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <DrawerAppBar />
+        <DrawerAppBar user={user} />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/transcriptions" element={<TranscriptionPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage user={user} setUser={setUser} />}
+          />
+          <Route path="/signup" element={<SignupPage user={user} />} />
         </Routes>
       </ThemeProvider>
     </>

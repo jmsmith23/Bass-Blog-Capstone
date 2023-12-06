@@ -18,9 +18,7 @@ export async function login({ email, password }) {
     throw new Error(body.message);
   }
 
-  // TODO: Save the auth token on the front-end (i.e. in a cookie or local storage)
-
-  return true;
+  return await response.json();
 }
 
 export async function signup({ username, email, password }) {

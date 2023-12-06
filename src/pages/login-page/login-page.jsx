@@ -2,15 +2,17 @@ import { Typography, Box, Container, TextField, Button } from '@mui/material';
 import { login } from '../../api/auth';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login({ email, password });
+    const user = await login({ email, password });
+    setUser(user);
     navigate('/');
   };
 
@@ -112,6 +114,10 @@ const LoginPage = () => {
       </Container>
     </>
   );
+};
+
+LoginPage.propTypes = {
+  setUser: PropTypes.func,
 };
 
 export default LoginPage;
