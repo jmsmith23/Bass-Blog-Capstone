@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const LoginPage = ({ setUser }) => {
+const LoginPage = ({ setCurrentUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LoginPage = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = await login({ email, password });
-    setUser(user);
+    setCurrentUser(user);
     navigate('/');
   };
 
@@ -117,7 +117,7 @@ const LoginPage = ({ setUser }) => {
 };
 
 LoginPage.propTypes = {
-  setUser: PropTypes.func,
+  setCurrentUser: PropTypes.func,
 };
 
 export default LoginPage;

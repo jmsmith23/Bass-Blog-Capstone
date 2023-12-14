@@ -2,8 +2,9 @@ import { Typography, Box, Container, TextField, Button } from '@mui/material';
 import { signup } from '../../api/auth';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const SignupPage = () => {
+const SignupPage = ({ currentUser, setCurrentUser }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +20,8 @@ const SignupPage = () => {
     }
 
     try {
-      await signup({ username, email, password });
+      const user = await signup({ username, email, password });
+      setCurrentUser(user);
       navigate('/');
     } catch (error) {
       // TODO: Set an error state
@@ -140,6 +142,11 @@ const SignupPage = () => {
       </Container>
     </>
   );
+};
+
+SignupPage.propTypes = {
+  setCurrentUser: PropTypes.func,
+  currentUser: PropTypes.object,
 };
 
 export default SignupPage;

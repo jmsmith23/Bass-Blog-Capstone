@@ -36,7 +36,23 @@ export async function signup({ username, email, password }) {
     throw new Error(body.message);
   }
 
-  // TODO: Save the auth token on the front-end (i.e. in a cookie or local storage)
+  return await response.json();
+}
 
-  return true;
+export async function getCurrentUser() {
+  const response = await fetch(
+    `${import.meta.env.VITE_API_URL}/users/current`,
+    {
+      method: 'GET',
+      // Send the browser's cookies with this request
+      credentials: 'include',
+    }
+  );
+
+  if (!response.ok) {
+    const body = await response.json();
+    throw new Error(body.message);
+  }
+
+  return await response.json();
 }

@@ -8,18 +8,25 @@ import SignupPage from './pages/signup-page/signup-page';
 import TranscriptionPage from './pages/transcription-page/transcription-page';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCurrentUser } from './api/auth';
 
 const App = () => {
-  // TODO: Get thecurrent user from the back-end when the page loads
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  console.log('user: ', user);
+  console.log('user: ', currentUser);
+
+  // TODO: Get the current user from the back-end when the page loads
+  useEffect(() => {
+    (async () => {
+      setCurrentUser(await getCurrentUser());
+    })();
+  }, []);
 
   return (
     <>
       <ThemeProvider theme={theme}>
-        <DrawerAppBar user={user} />
+        <DrawerAppBar user={currentUser} />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<LandingPage />} />
@@ -28,9 +35,22 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route
             path="/login"
-            element={<LoginPage user={user} setUser={setUser} />}
+            element={
+              <LoginPage
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
           />
-          <Route path="/signup" element={<SignupPage user={user} />} />
+          <Route
+            path="/signup"
+            element={
+              <SignupPage
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
         </Routes>
       </ThemeProvider>
     </>
