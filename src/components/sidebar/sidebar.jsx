@@ -5,6 +5,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ handleDrawerToggle, navItems }) => {
   return (
@@ -17,13 +19,24 @@ const Sidebar = ({ handleDrawerToggle, navItems }) => {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to={`${item}`}
+              >
+                <ListItemText primary={item} />
+                <Link />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
       </List>
     </Box>
   );
+};
+
+Sidebar.propTypes = {
+  handleDrawerToggle: PropTypes.func,
+  navItems: PropTypes.array,
 };
 
 export default Sidebar;
