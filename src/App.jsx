@@ -10,6 +10,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import { useState, useEffect } from 'react';
 import { getCurrentUser } from './api/auth';
+import LogoutPage from './pages/logout-page/logout-page';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -51,6 +52,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/logout" element={<LogoutPage />} />
         </Routes>
       </ThemeProvider>
     </>

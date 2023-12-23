@@ -39,10 +39,6 @@ function DrawerAppBar({ window, user }) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const drawer = (
-    <Sidebar handleDrawerToggle={handleDrawerToggle} navItems={navItems} />
-  );
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -101,7 +97,10 @@ function DrawerAppBar({ window, user }) {
             },
           }}
         >
-          {drawer}
+          <Sidebar
+            handleDrawerToggle={handleDrawerToggle}
+            navItems={navItems}
+          />
         </Drawer>
       </nav>
       <Box component="main" sx={{ p: 3 }}></Box>

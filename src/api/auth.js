@@ -56,3 +56,18 @@ export async function getCurrentUser() {
 
   return await response.json();
 }
+
+export async function logout() {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/logout`, {
+    method: 'POST',
+    // Send the browser's cookies with this request
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const body = await response.json();
+    throw new Error(body.message);
+  }
+
+  return await response.json();
+}
