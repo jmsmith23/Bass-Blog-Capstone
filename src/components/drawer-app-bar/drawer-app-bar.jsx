@@ -29,11 +29,10 @@ function DrawerAppBar({ window, user }) {
   useEffect(() => {
     if (user) {
       setNavItems(['home', 'about', 'transcriptions', 'contact', 'logout']);
+    } else {
+      setNavItems(['home', 'about', 'transcriptions', 'contact', 'login']);
     }
   }, [user]);
-  // const onLogin = () => {
-  //   setNavItems(['home', 'about', 'transcriptions', 'contact', 'logout']);
-  // };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);

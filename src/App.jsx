@@ -15,7 +15,7 @@ import LogoutPage from './pages/logout-page/logout-page';
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
-  console.log('user: ', currentUser);
+  // console.log('user: ', currentUser);
 
   // TODO: Get the current user from the back-end when the page loads
   useEffect(() => {
@@ -52,7 +52,15 @@ const App = () => {
               />
             }
           />
-          <Route path="/logout" element={<LogoutPage />} />
+          <Route
+            path="/logout"
+            element={
+              <LogoutPage
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
         </Routes>
       </ThemeProvider>
     </>
