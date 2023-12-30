@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { logout } from '../../api/auth.js';
+import { useNavigate } from 'react-router-dom';
 
 const LogoutPage = () => {
-  // TODO:
-  // - Perform the logout (send the request to the logout route)
-  // - Navigate to the homepage
+  const navigate = useNavigate();
+
   useEffect(() => {
     logout();
-  }, []);
+    navigate('/');
+  }, [navigate]);
   return <></>;
 };
 
