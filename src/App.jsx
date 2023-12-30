@@ -11,6 +11,7 @@ import theme from './theme';
 import { useState, useEffect } from 'react';
 import { getCurrentUser } from './api/auth';
 import LogoutPage from './pages/logout-page/logout-page';
+import NewPost from './pages/new-post-page/new-post-page';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -61,6 +62,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/new-post" element={<NewPost />} />
         </Routes>
       </ThemeProvider>
     </>
