@@ -1,7 +1,25 @@
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box, Container } from '@mui/material';
+import { Box, Container, Button } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { styled } from '@mui/material/styles';
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+};
 
 const NewPost = () => {
   return (
@@ -27,6 +45,7 @@ const NewPost = () => {
           }}
           noValidate
           autoComplete="off"
+          onSubmit={handleSubmit}
         >
           <Stack spacing={3}>
             <TextField
@@ -40,7 +59,41 @@ const NewPost = () => {
               multiline
               rows={4}
             />
+            <Typography variant="subtitle1" gutterBottom>
+              Upload Image:
+            </Typography>
+            <Button
+              component="label"
+              variant="contained"
+              startIcon={<CloudUploadIcon />}
+              sx={{ width: '25%' }}
+            >
+              Upload file
+              <VisuallyHiddenInput type="file" />
+            </Button>
+            <Typography variant="subtitle1" gutterBottom>
+              Upload Thumbnail:
+            </Typography>
+            <Button
+              component="label"
+              variant="contained"
+              startIcon={<CloudUploadIcon />}
+              sx={{ width: '25%' }}
+            >
+              Upload file
+              <VisuallyHiddenInput type="file" />
+            </Button>
           </Stack>
+          <Button
+            type="submit"
+            variant="contained"
+            color="secondary"
+            value="submit"
+            size="large"
+            sx={{ width: '25%', mt: 10, mx: 36 }}
+          >
+            Create Post
+          </Button>
         </Box>
       </Container>
 
