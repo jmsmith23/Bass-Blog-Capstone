@@ -59,6 +59,17 @@ const NewPost = () => {
               multiline
               rows={4}
             />
+            {/* <TextEditor
+              onChange={(value) => {
+                setContent(value);
+              }}
+            /> */}
+            {/* 
+            TODO:
+            - Create, import, and render the new TextEditor component
+              - Use this code inside: https://tiptap.dev/docs/editor/examples/default
+              - Figure out how to get the content value (probably forward the onChange prop)
+            */}
             <Typography variant="subtitle1" gutterBottom>
               Upload Image:
             </Typography>

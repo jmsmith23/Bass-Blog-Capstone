@@ -16,9 +16,6 @@ import NewPost from './pages/new-post-page/new-post-page';
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
-  // console.log('user: ', currentUser);
-
-  // TODO: Get the current user from the back-end when the page loads
   useEffect(() => {
     (async () => {
       setCurrentUser(await getCurrentUser());
