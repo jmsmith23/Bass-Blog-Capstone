@@ -4,6 +4,8 @@ import { Box, Container, Button } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
+import TextEditor from '../../components/text-editor/text-editor';
+import { useEffect, useState } from 'react';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -22,6 +24,12 @@ const handleSubmit = async (e) => {
 };
 
 const NewPost = () => {
+  const [content, setContent] = useState();
+
+  useEffect(() => {
+    console.log('content: ', content);
+  }, [content]);
+
   return (
     <>
       <Typography variant="h3" sx={{ textAlign: 'center', my: 6 }}>
@@ -59,11 +67,12 @@ const NewPost = () => {
               multiline
               rows={4}
             />
-            {/* <TextEditor
+            <TextEditor
+              content={content}
               onChange={(value) => {
                 setContent(value);
               }}
-            /> */}
+            />
             {/* 
             TODO:
             - Create, import, and render the new TextEditor component
