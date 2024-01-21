@@ -1,22 +1,65 @@
 import { Button } from '@mui/material';
 import './styles.scss';
-
+import Youtube from '@tiptap/extension-youtube';
 import { Color } from '@tiptap/extension-color';
 import ListItem from '@tiptap/extension-list-item';
 import TextStyle from '@tiptap/extension-text-style';
 import { EditorProvider, useCurrentEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import PropTypes from 'prop-types';
+import Image from '@tiptap/extension-image';
+import { useEffect, useRef } from 'react';
 
 const MenuBar = () => {
   const { editor } = useCurrentEditor();
+
+  const widthRef = useRef(null);
+  const heightRef = useRef(null);
+
+  useEffect(() => {
+    if (widthRef.current && heightRef.current) {
+      widthRef.current.value = 640;
+      heightRef.current.value = 480;
+    }
+  }, [widthRef.current, heightRef.current]);
 
   if (!editor) {
     return null;
   }
 
+  const addYoutubeVideo = () => {
+    const url = prompt('Enter YouTube URL');
+
+    if (url) {
+      editor.commands.setYoutubeVideo({
+        src: url,
+        width: Math.max(320, parseInt(widthRef.current.value, 10)) || 640,
+        height: Math.max(180, parseInt(heightRef.current.value, 10)) || 480,
+      });
+    }
+  };
+
   return (
     <>
+      <button id="add" onClick={addYoutubeVideo}>
+        Add YouTube video
+      </button>
+      <input
+        id="width"
+        type="number"
+        min="320"
+        max="1024"
+        ref={widthRef}
+        placeholder="width"
+      />
+      <input
+        id="height"
+        type="number"
+        min="180"
+        max="720"
+        ref={heightRef}
+        placeholder="height"
+      />
       <Button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -159,6 +202,12 @@ const extensions = [
       keepMarks: true,
       keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
     },
+  }),
+  Image.configure({
+    allowBase64: true,
+  }),
+  Youtube.configure({
+    controls: false,
   }),
 ];
 
