@@ -21,7 +21,7 @@ const MenuBar = () => {
       widthRef.current.value = 640;
       heightRef.current.value = 480;
     }
-  }, [widthRef.current, heightRef.current]);
+  }, [widthRef, heightRef]);
 
   if (!editor) {
     return null;

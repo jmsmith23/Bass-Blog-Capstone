@@ -1,11 +1,11 @@
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import { Box, Container, Button } from '@mui/material';
-import Stack from '@mui/material/Stack';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { Box, Button, Container } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
 import TextEditor from '../../components/text-editor/text-editor';
-import { useEffect, useState } from 'react';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -24,11 +24,9 @@ const handleSubmit = async (e) => {
 };
 
 const NewPost = () => {
-  const [content, setContent] = useState();
-
-  useEffect(() => {
-    console.log('content: ', content);
-  }, [content]);
+  const [content, setContent] = useState('');
+  const [newTag, setNewTag] = useState('');
+  const [tags, setTags] = useState([]);
 
   return (
     <>
@@ -61,7 +59,29 @@ const NewPost = () => {
               id="outlined-size-normal"
               sx={{ mb: 20 }}
             />
-
+            {/* TODO: Render a list of badges using the tags array */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '1em' }}>
+              <TextField
+                label="Tag"
+                id="outlined-size-normal"
+                sx={{ maxWidth: 200 }}
+                value={newTag}
+                onChange={(e) => {
+                  setNewTag(e.target.value);
+                }}
+              />
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ width: '2em' }}
+                onClick={() => {
+                  // NOTE: When you set a state that depends on the old value, always use an arrow function
+                  setTags((tags) => [...tags, newTag]);
+                }}
+              >
+                Add
+              </Button>
+            </Box>
             <TextEditor
               content={content}
               onChange={(value) => {
@@ -75,22 +95,23 @@ const NewPost = () => {
               component="label"
               variant="contained"
               startIcon={<CloudUploadIcon />}
-              sx={{ width: '25%' }}
+              sx={{ width: 'fit-content' }}
             >
               Upload file
               <VisuallyHiddenInput type="file" />
             </Button>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              value="submit"
+              size="large"
+              sx={{ width: 'fit-content', mt: 10, alignSelf: 'center' }}
+            >
+              Create Post
+            </Button>
           </Stack>
-          <Button
-            type="submit"
-            variant="contained"
-            color="secondary"
-            value="submit"
-            size="large"
-            sx={{ width: '25%', mt: 10, mx: 36 }}
-          >
-            Create Post
-          </Button>
         </Box>
       </Container>
     </>
